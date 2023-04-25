@@ -33,7 +33,7 @@ export const ImageGrid = () => {
     const [images, setImages] = useState(collection)
     
 
-    const handleClick = (e) => {
+    const handleClick = () => {
       // e.target.style.display = 'none'
       setImages(reshuffleImages(collection))
     }
@@ -41,7 +41,7 @@ export const ImageGrid = () => {
   
   return (
     <div className='grid grid-4 gap-4 container'>
-      {images.map((image, index) => <img  id= {image.id} onClick={(e) =>handleClick(e)} key={image.id} src ={image.src}  alt={`imageNo-${index + 1}`}/>)}
+      {images.map((image, index) => <img  id= {image.id} onClick={handleClick} key={image.id} src ={image.src}  alt={`imageNo-${index + 1}`}/>)}
     </div>
   )
 }

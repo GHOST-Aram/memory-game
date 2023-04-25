@@ -12,12 +12,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.bg-gray{
+  background-color: gray;
+}
 .container{
   width: 90%;
   margin: auto;
 }
-img{
-  width: 300px;
+.flex{
+  display: flex;
+}
+.flex-row{
+  flex-direction: row;
+}
+.flex-start{
+  align-items: start;
+}
+.font-light{
+  font-weight: 300;
+}
+.font-md{
+  font-weight: 400;
 }
 .grid{
   display: grid;
@@ -28,3 +43,25 @@ img{
 .gap-4{
   gap: 1rem;
 }
+img{
+  width: 200px;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.px-8{
+  padding-inline: 1rem;
+}
+.py-8{
+  padding-block: 1rem;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.text-white{
+  color: white;
+}
+

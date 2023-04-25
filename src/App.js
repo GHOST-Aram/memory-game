@@ -1,5 +1,4 @@
-
-// import car from './components/images/nature1.jpeg'
+import Header from './components/header';
 import './App.css';
 import ImageGrid from './components/image-grid';
 
@@ -7,6 +6,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <ImageGrid/>
     </div>
   );
