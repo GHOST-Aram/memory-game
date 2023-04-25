@@ -34,7 +34,7 @@ export const ImageGrid = () => {
     
 
     const handleClick = (e) => {
-      e.target.style.display = 'none'
+      // e.target.style.display = 'none'
       setImages(reshuffleImages(collection))
     }
     
