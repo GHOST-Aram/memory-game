@@ -43,7 +43,18 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
         setImages(reshuffleImages(status))
       } 
       else{//If target images has been clicked- flase was returned
+        //Set best score
+        if(currentScore > bestScore){
+          setBest(currentScore)
+        }
+        //Reset current score
+        setScore(0)
 
+        // Reset images
+        setImages(collection)
+
+        // Alert user 
+        alert('Game over Friend: You clicked the same image twice')
       }
     }
     
