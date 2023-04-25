@@ -15,3 +15,20 @@ export const reshuffleImages = (collection) =>{
     }
     return collection
   }
+
+  export const markAsClicked = (target, collection) =>{
+    for(let index = 0; index < collection.length; index++){
+        const image = collection[index]
+        //Find target
+        if(image.id === target.id){
+            // check if not clicked then click
+            if(!image.clicked){
+                image.clicked = !image.clicked//Invert 
+                break
+            } 
+            else {return false} //Return false if image had been clicked
+        }
+
+    }
+    return collection
+  }
