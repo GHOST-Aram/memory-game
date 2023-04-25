@@ -49,11 +49,17 @@ img{
 .justify-between{
   justify-content: space-between;
 }
+.p-4{
+  padding: .5rem;
+}
 .px-8{
   padding-inline: 1rem;
 }
 .py-8{
   padding-block: 1rem;
+}
+.py-12{
+  padding-block: 1.25rem;
 }
 .text-left{
   text-align: left;
