@@ -1,13 +1,16 @@
 import uniqid from 'uniqid'
-import image1 from './images/tesla2.png'
-import image2 from './images/tesla4.png'
-import image5 from './images/tesla6.png'
-import image6 from './images/tesla7.png'
-import image7 from './images/tesla8.png'
-import image8 from './images/tesla9.png'
-import image9 from './images/tesla10.png'
-import image10 from './images/tesla11.png'
-import image12 from './images/tesla1.png'
+import image1 from './images/waterfall-1.jpg'
+import image2 from './images/waterfall-2.jpg'
+import image3 from './images/waterfall-3.jpg'
+import image4 from './images/waterfall-4.jpg'
+import image5 from './images/waterfall-5.jpg'
+import image6 from './images/waterfall-6.jpg'
+import image7 from './images/waterfall-7.jpg'
+import image8 from './images/waterfall-8.jpg'
+import image9 from './images/waterfall-9.jpg'
+import image10 from './images/waterfall-10.jpg'
+import image11 from './images/waterfall-11.jpg'
+import image12 from './images/waterfall-12.jpg'
 
 import { reshuffleImages, markAsClicked } from '../data'
 
@@ -16,18 +19,18 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
   
   
   let collection =  [
-    {id: uniqid(), src: image12, clicked: false},
     {id: uniqid(), src: image1,  clicked: false},
     {id: uniqid(), src: image2,  clicked: false},
+    {id: uniqid(), src: image3,  clicked: false},
+    {id: uniqid(), src: image4,  clicked: false},
     {id: uniqid(), src: image5,  clicked: false},
     {id: uniqid(), src: image6,  clicked: false},
     {id: uniqid(), src: image7,  clicked: false},
     {id: uniqid(), src: image8,  clicked: false},
     {id: uniqid(), src: image9,  clicked: false},
     {id: uniqid(), src: image10,  clicked: false},
-    {id: uniqid(), src: image7,  clicked: false},
-    {id: uniqid(), src: image8,  clicked: false},
-    {id: uniqid(), src: image9,  clicked: false},
+    {id: uniqid(), src: image11,  clicked: false},
+    {id: uniqid(), src: image12, clicked: false},
     ]
             
     const [images, setImages] = useState(collection)
@@ -40,9 +43,10 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
       if(status){
         //Increment current score
         setScore(currentScore += 1)
-        if(currentScore === images.length){
+        if(currentScore === images.length){ //Player wins
           alert('Congratulations, you remembered all images correctly')
-          setImages(images)
+          setImages(collection)
+          setBest(currentScore)
         }
         else {setImages(reshuffleImages(status))}
       } 
