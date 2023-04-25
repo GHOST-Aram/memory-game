@@ -34,7 +34,7 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
     
 
     const handleClick = (e) => {
-      const status = markAsClicked(e.target, collection)
+      const status = markAsClicked(e.target.id, images)
 
       //If collection is returned reshuffle
       if(status){
