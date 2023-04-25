@@ -40,7 +40,11 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
       if(status){
         //Increment current score
         setScore(currentScore += 1)
-        setImages(reshuffleImages(status))
+        if(currentScore === images.length){
+          alert('Congratulations, you remembered all images correctly')
+          setImages(images)
+        }
+        else {setImages(reshuffleImages(status))}
       } 
       else{//If target images has been clicked- flase was returned
         //Set best score
