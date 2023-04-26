@@ -15,6 +15,15 @@ code {
 .bg-gray{
   background-color: gray;
 }
+.bg-white{
+  background-color: white;
+}
+.border-gray{
+  border: solid gray 2px;
+}
+.border-none{
+  border: none;
+}
 .container{
   width: 90%;
   margin: auto;
@@ -43,6 +52,10 @@ code {
 .gap-4{
   gap: 1rem;
 }
+.hover-scale:hover{
+  transform: scale(1.1);
+  transition: .5s;
+}
 img{
   width: 200px;
 }
@@ -52,8 +65,30 @@ img{
 .mt-4{
   margin-block-start: .5rem;
 }
+#overlay{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
 .p-4{
   padding: .5rem;
+}
+.p-8{
+  padding: 1rem;
+}
+.pb-8{
+  padding-block-end: 1rem;
+}
+.position-absolute{
+  position: absolute;
+  left: 25%;
+  bottom: 30%;
 }
 .pt-4{
   padding-block-start: .5rem;
@@ -73,8 +108,23 @@ img{
 .py-12{
   padding-block: 1.25rem;
 }
+.rounded-lg{
+  border-radius: 8px;
+}
+.rounded-sm{
+  border-radius: 4px;
+}
+.text-center{
+  text-align: center;
+}
 .text-left{
   text-align: left;
+}
+.text-green-500{
+  color: rgb(45, 170, 45);
+}
+.text-red-500{
+  color: rgb(142, 5, 5);
 }
 .text-right{
   text-align: right;
@@ -84,5 +134,8 @@ img{
 }
 .text-white{
   color: white;
+}
+.w-50{
+  width: 50%;
 }
 

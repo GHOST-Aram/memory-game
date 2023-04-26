@@ -11,6 +11,8 @@ import image9 from './images/waterfall-9.jpg'
 import image10 from './images/waterfall-10.jpg'
 import image11 from './images/waterfall-11.jpg'
 import image12 from './images/waterfall-12.jpg'
+import GameStatus from './GameStatus'
+
 
 import { reshuffleImages, markAsClicked } from '../data'
 
@@ -35,6 +37,9 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
             
     const [images, setImages] = useState(collection)
     
+    const [isWin, setIsWin] = useState(false)
+
+    const [showScore, setShowScore] = useState(false)
 
     const handleClick = (e) => {
       const status = markAsClicked(e.target.id, images)
@@ -44,9 +49,10 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
         //Increment current score
         setScore(currentScore += 1)
         if(currentScore === images.length){ //Player wins
-          alert('Congratulations, you remembered all images correctly')
           setImages(collection)
           setBest(currentScore)
+          setIsWin(true)
+          setShowScore(true) //diplay win
         }
         else {setImages(reshuffleImages(status))}
       } 
@@ -62,7 +68,8 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
         setImages(collection)
 
         // Alert user 
-        alert('Game over Friend: You clicked the same image twice')
+        setIsWin(false)
+        setShowScore(true)
       }
     }
     
@@ -76,7 +83,10 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
                    src ={image.src}  alt={`imageNo-${index + 1}`}/>
               </div>
       })
-      }
+    }
+    {showScore && <GameStatus bestScore={bestScore} 
+    currentScore={currentScore} isWin={isWin}
+    />}
     </div>
   )
 }
