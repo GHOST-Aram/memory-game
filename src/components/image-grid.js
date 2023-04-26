@@ -39,7 +39,9 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
     
     const [isWin, setIsWin] = useState(false)
 
-    const [showScore, setShowScore] = useState(false)
+    const [showStatus, setShowStatus] = useState(false)
+
+
 
     const handleClick = (e) => {
       const status = markAsClicked(e.target.id, images)
@@ -49,10 +51,9 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
         //Increment current score
         setScore(currentScore += 1)
         if(currentScore === images.length){ //Player wins
-          setImages(collection)
           setBest(currentScore)
           setIsWin(true)
-          setShowScore(true) //diplay win
+          setShowStatus(true) //diplay win
         }
         else {setImages(reshuffleImages(status))}
       } 
@@ -61,18 +62,26 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
         if(currentScore > bestScore){
           setBest(currentScore)
         }
-        //Reset current score
-        setScore(0)
-
-        // Reset images
-        setImages(collection)
-
+        
         // Alert user 
         setIsWin(false)
-        setShowScore(true)
+        setShowStatus(true)
       }
     }
     
+    const hideStatus = () => {
+      setShowStatus(false)
+      tryAgain()
+    }
+    
+    const tryAgain = () =>{
+      //Reset current score
+      setScore(0)
+  
+      // Reset images
+      setImages(collection)
+      
+    }
   
   return (
     <div className='grid grid-4 gap-4 container py-12'>
@@ -84,7 +93,7 @@ export const ImageGrid = ({setScore, setBest, bestScore, currentScore}) => {
               </div>
       })
     }
-    {showScore && <GameStatus bestScore={bestScore} 
+    {showStatus && <GameStatus bestScore={bestScore} hideStatus={hideStatus} 
     currentScore={currentScore} isWin={isWin}
     />}
     </div>

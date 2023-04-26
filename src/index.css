@@ -28,6 +28,9 @@ code {
   width: 90%;
   margin: auto;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
 .flex{
   display: flex;
 }

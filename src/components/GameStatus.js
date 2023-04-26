@@ -1,11 +1,11 @@
 import React from 'react'
 import Overlay from './Overlay'
 
-const GameStatus = ({isWin, currentScore, bestScore}) => {
+const GameStatus = ({isWin, currentScore, bestScore, hideStatus}) => {
   return (
     <>
         <Overlay />
-        <div id='game-status' className='bg-white border-gray p-8 text-center rounded-lg position-absolute w-50'>
+        <div id='game-status' className='bg-white border-gray p-8 text-center rounded-lg position-absolute cursor-pointer w-50'>
             {
             isWin ?
             <>
@@ -20,7 +20,9 @@ const GameStatus = ({isWin, currentScore, bestScore}) => {
             </>
 
             }
-            <button className='bg-gray text-white py-4 px-8 border-none rounded-sm hover-scale'>
+            <button className='bg-gray cursor-pointer text-white py-4 px-8 border-none rounded-sm hover-scale'
+                    onClick={hideStatus}
+            >
                 <h2 className='font-light'>{isWin ? 'Play Again' : 'Try Again'}</h2>
             </button>
         </div>
